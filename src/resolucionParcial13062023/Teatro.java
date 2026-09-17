@@ -7,6 +7,28 @@ public class Teatro {
 
 	Obra[] obras;
 
+	public Obra masBarata() {
+		
+		//crear la variable que vamos a retornar
+		Obra obraMasBarata = null;
+		
+		//obtengo arbitrariamente un precio mas bajo (de los elementos del arreglo)
+		double precioMasBajo = this.obras[0].funciones[0].sectores[0].precio;
+		
+		for (Obra obra : this.obras) {
+			for (Funcion funcion : obra.funciones) {
+				for (Sector sector : funcion.sectores) {
+					if (sector.precio <= precioMasBajo) { //si el precio del sector que estoy recorriendo es menor que precioMasBajo
+						precioMasBajo = sector.precio; //guardo un nuevo precio mas bajo
+						obraMasBarata = obra; //guardo una obra que por ahora es la mas barata
+					}
+				}
+			}
+		}
+		
+		return obraMasBarata;
+		
+	}
 		
 		
 	

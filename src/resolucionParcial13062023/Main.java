@@ -11,7 +11,7 @@ public class Main {
 		
 //		//pruebas
 //		//a
-// 		System.out.println(teatro.masBarata());
+ 		System.out.println(teatro.masBarata());
 //		
 //		//b
 //		for (Funcion f : teatro.agotadas()) {
