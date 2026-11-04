@@ -1,9 +1,11 @@
 package resolucionParcial18112025;
 
+import java.util.ArrayList;
 
 public class RedAlquiler {
 	Sucursal[] sucursales;
 	
+	//a)
 	public double gastoTotal(Cliente cliente, Ciudad ciudad) {
 		
 		double total = 0; //acumulador 
@@ -22,6 +24,28 @@ public class RedAlquiler {
 		}
 		return total;
 	}
+	
+	//b
+	public ArrayList<Sucursal> conTodosAutosViejos(int anioMax){
+		ArrayList<Sucursal> sucursales = new ArrayList<Sucursal>();
+		
+		for (Sucursal sucursal : this.sucursales) {
+			int contadorAutosViejos = 0;
+			
+			for (Auto auto : sucursal.autos) {
+				if (auto.anio < anioMax) {
+					contadorAutosViejos++;
+				}
+			}
+			
+			if (contadorAutosViejos == sucursal.autos.length && !sucursales.contains(sucursal)) {
+				sucursales.add(sucursal);
+			}
+		}
+		
+		return sucursales;
+	}
+	
 	
 	//Ejercicio de recuperatorio de este parcial:
 	//Escribir el método public Cliente conAlquilerMasAlto() que retorna el cliente que realizó el alquiler ás costoso
