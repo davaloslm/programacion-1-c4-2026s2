@@ -7,6 +7,7 @@ public class Teatro {
 
 	Obra[] obras;
 
+	//a)
 	public Obra masBarata() {
 		
 		//crear la variable que vamos a retornar
@@ -30,6 +31,42 @@ public class Teatro {
 		
 	}
 		
+	//b) con funcion auxiliar en clase Funcion
+	public ArrayList<Funcion> agotadas(){
+		ArrayList<Funcion> funcionesAgotadas = new ArrayList<Funcion>();
+		for (Obra o : this.obras) {
+			for (Funcion f : o.funciones) {
+				if (f.estaAgotada() && !funcionesAgotadas.contains(f)) {
+					funcionesAgotadas.add(f);
+				}
+			}
+		}
+		return funcionesAgotadas;
+	}
+	
+	//alternativa
+//	public ArrayList<Funcion> agotadas(){
+//		ArrayList<Funcion> funcionesAgotadas = new ArrayList<Funcion>();
+//		for (Obra o : this.obras) {
+//			
+//			boolean estaAgotada = true;
+//			
+//			for (Funcion f : o.funciones) {
+//				for (Sector s : f.sectores) {
+//					for (Asiento a : s.asientos) {
+//						if (a.usuario == null ) {
+//							estaAgotada = false;
+//						}
+//					}
+//				}
+//				if (estaAgotada && !!funcionesAgotadas.contains(f)) {
+//					
+//				}
+//			}
+//		}
+//		return funcionesAgotadas;
+//	}
+	
 		
 	
 	
