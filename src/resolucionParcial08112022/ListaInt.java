@@ -27,6 +27,24 @@ public class ListaInt {
 	}
 
 
+	public void quitar(int x) {
+		NodoInt actual = this.primero;
+		
+		if (actual != null && actual.elemento ==x) { //si el que hay que quitar es el primero
+			this.primero = actual.siguiente;
+		}
+		
+		//si no, recorrer hasta el penultimo
+		while (actual != null && actual.siguiente != null) {
+			if (actual.siguiente.elemento == x) {
+				actual.siguiente = actual.siguiente.siguiente;
+				return; //terminar el metodo porque solo hay que quitar la primera aparicion
+			}
+			actual = actual.siguiente;
+					
+		}
+	}
+
 	public void imprimir() {
 		
 		NodoInt actual = this.primero;
@@ -39,6 +57,5 @@ public class ListaInt {
 		System.out.println("]");
 		
 	}
-	
 	
 }
